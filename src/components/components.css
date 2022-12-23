@@ -1,0 +1,34 @@
+/* main*/
+.cardmain{
+    height: 520px;
+}
+
+.about:hover,h3:hover{
+    color:red;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    padding-right: 10px;
+    width: 90rem;
+    
+}
+.right{
+    width:20rem;
+}
+#p{
+    font-size: 13px;
+}
+
+
+
+
+@media (max-width:500px){
+    .search{
+        width: 120px;
+        overflow: hidden;
+    }
+    
+}
