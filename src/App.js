@@ -1,14 +1,19 @@
-import logo from './logo.svg';
 import Voice from './components/voice';
-import React,{useEffect,useState} from 'react'
+import React,{useState} from 'react'
 import ResponsiveAppBar from './components/nav';
+import Button from './components/buttons';
 const App =()=> 
 {
+  const [country,setCountry]=useState('in')
+  console.log(country)
   return(
     <>
-    <ResponsiveAppBar/>
-    <br/>
-    <Voice/>
+      <ResponsiveAppBar changeQuery={country=>setCountry(country)} />
+      <br/>
+      <Button/>
+      <br/>
+      <br/>
+      <Voice country={country}/>
     </>
   )
 }

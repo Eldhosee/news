@@ -2,12 +2,12 @@ import React,{useEffect,useState} from 'react'
 import { CardActionArea,Card, CardContent,CardMedia, Typography,Grid} from '@mui/material';
 import './components.css';
 import  axios from 'axios'
-const Voice=()=>{
+const Voice=(props)=>{
     const [headlines,setHeadlines]=useState([]);
     const [business,setBusiness]=useState([]);
     const options = {
         method: 'GET',
-        url: 'https://newsapi.org/v2/top-headlines?country=us&apiKey=4e78b2a4ae704dad949d898adf6e435b',
+        url: `https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=4e78b2a4ae704dad949d898adf6e435b`,
         
       };
       
@@ -21,10 +21,10 @@ const Voice=()=>{
                 .catch(function (error) {
                     console.error(error);
                 });
-    },[]);
+    },props.country);
     const options2 = {
       method: 'GET',
-      url: 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=4e78b2a4ae704dad949d898adf6e435b',
+      url: `https://newsapi.org/v2/top-headlines?country=${props.country}&category=business&apiKey=4e78b2a4ae704dad949d898adf6e435b`,
       
     };
     
@@ -38,7 +38,7 @@ const Voice=()=>{
               .catch(function (error) {
                   console.error(error);
               });
-  },[]);
+  },props.country);
  
    return(
     <>
@@ -78,10 +78,11 @@ const Voice=()=>{
           </Grid>
         </div>
         <div className='right'>
+          <h4>Business News</h4>
                       {business.map((item)=>
                       (
                         <>
-                          <h6>{item.title}</h6>
+                          <a href={item.url}><h5>{item.title}</h5></a>
                           <p id="p">{item.description}</p>
                           <hr/>
                         </>

@@ -3,8 +3,12 @@
     height: 520px;
 }
 
-.about:hover,h3:hover{
+a:hover,.about:hover,h3:hover{
     color:red;
+}
+a{
+    color: black;
+    text-decoration: none;
 }
 .main{
     display: flex;
