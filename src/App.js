@@ -1,19 +1,25 @@
 import Voice from './components/voice';
 import React,{useState} from 'react'
 import ResponsiveAppBar from './components/nav';
-import Button from './components/buttons';
+import Buttons from './components/buttons';
+import Search from './components/search';
+import Footer from './components/footer';
 const App =()=> 
 {
   const [country,setCountry]=useState('in')
-  console.log(country)
+  const [category,setCategory]=useState('')
+  const[search,setSearch]=useState('')
+  console.log(search)
   return(
     <>
       <ResponsiveAppBar changeQuery={country=>setCountry(country)} />
       <br/>
-      <Button/>
+      <Search changeQuery={search=>setSearch(search)}/>
       <br/>
+      <Buttons changeQuery={country=>setCategory(country)}/>
       <br/>
-      <Voice country={country}/>
+      <Voice country={country} category={category} search={search} changeQuery={search=>setSearch(search)}/>
+      <Footer/>
     </>
   )
 }
